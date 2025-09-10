@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur d'étiquettes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Générateur d'étiquettes pour boîte aux lettres</h1>
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="labelType" value="single"> Une étiquette avec un seul nom
+            </label>
+            <label>
+                <input type="radio" name="labelType" value="double" checked> Une étiquette avec deux noms
+            </label>
+        </div>
+        <div class="input-group">
+            <input type="text" id="name1" class="input-field" placeholder="Entrez le premier nom">
+            <input type="text" id="name2" class="input-field" placeholder="Entrez le deuxième nom">
+        </div>
+        <button id="downloadButton" class="btn">Télécharger l'étiquette</button>
+        <div class="label-preview" id="labelPreview"></div>
+    </div>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
