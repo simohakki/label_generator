@@ -6,11 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const downloadButton = document.getElementById('downloadButton');
     const name2Container = document.querySelector('#name2').parentElement;
 
-    // Mettre à jour l'aperçu à chaque saisie
     name1Input.addEventListener('input', updatePreview);
     name2Input.addEventListener('input', updatePreview);
 
-    // Gérer l'affichage du champ pour le deuxième nom
     labelTypeRadios.forEach(radio => {
         radio.addEventListener('change', function() {
             if (this.value === 'double') {
@@ -22,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mettre à jour l'aperçu
     function updatePreview() {
         const labelType = document.querySelector('input[name="labelType"]:checked').value;
         const name1 = name1Input.value.toUpperCase();
@@ -39,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Télécharger l'étiquette
     downloadButton.addEventListener('click', function() {
         html2canvas(labelPreview).then(canvas => {
             const { jsPDF } = window.jspdf;
@@ -52,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const imgData = canvas.toDataURL('image/png');
             pdf.addImage(imgData, 'PNG', 0, 0, 9.5, 2.5);
             pdf.save('etiquette.pdf');
+
         });
     });
 
-    // Initialiser l'aperçu
     updatePreview();
 });
