@@ -42,10 +42,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Télécharger l'étiquette
     downloadButton.addEventListener('click', function() {
         html2canvas(labelPreview).then(canvas => {
-            const link = document.createElement('a');
-            link.href = canvas.toDataURL('image/png');
-            link.download = 'etiquette.png';
-            link.click();
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'landscape',
+                unit: 'cm',
+                format: [9.5, 2.5]
+            });
+
+            const imgData = canvas.toDataURL('image/png');
+            pdf.addImage(imgData, 'PNG', 0, 0, 9.5, 2.5);
+            pdf.save('etiquette.pdf');
         });
     });
 
