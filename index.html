@@ -3,29 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Générateur d'étiquettes</title>
+    <title>Générateur d'étiquett.es</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
     <div class="container">
         <h1>Générateur d'étiquettes pour boîte aux lettres</h1>
-        <div class="radio-group">
-            <label>
-                <input type="radio" name="labelType" value="single"> Une étiquette avec un seul nom
-            </label>
-            <label>
-                <input type="radio" name="labelType" value="double" checked> Une étiquette avec deux noms
-            </label>
+
+        <div class="form-section">
+            <div class="radio-group">
+                <div class="radio-option">
+                    <input type="radio" name="labelType" value="single" id="single">
+                    <label for="single" class="radio-label">
+                        <div class="radio-indicator"></div>
+                        <span class="radio-text">Une étiquette avec un seul nom</span>
+                    </label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" name="labelType" value="double" id="double" checked>
+                    <label for="double" class="radio-label">
+                        <div class="radio-indicator"></div>
+                        <span class="radio-text">Une étiquette avec deux noms</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <input type="text" id="name1" class="input-field" placeholder="Entrez le premier nom">
+                </div>
+                <div class="input-wrapper">
+                    <input type="text" id="name2" class="input-field" placeholder="Entrez le deuxième nom">
+                </div>
+            </div>
+
+            <button id="downloadButton" class="download-button">Télécharger l'étiquette PDF</button>
         </div>
-        <div class="input-group">
-            <input type="text" id="name1" class="input-field" placeholder="Entrez le premier nom">
-            <input type="text" id="name2" class="input-field" placeholder="Entrez le deuxième nom">
+
+        <div class="preview-section">
+            <div class="preview-title">Aperçu de l'étiquette</div>
+            <div class="label-preview" id="labelPreview"></div>
         </div>
-        <button id="downloadButton" class="btn">Télécharger l'étiquette</button>
-        <div class="label-preview" id="labelPreview"></div>
     </div>
+
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
