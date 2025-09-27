@@ -20,6 +20,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Initialiser l'affichage au chargement de la page
+    const initialLabelType = document.querySelector('input[name="labelType"]:checked').value;
+    if (initialLabelType === 'single') {
+        name2Container.style.display = 'none';
+    } else {
+        name2Container.style.display = 'block';
+    }
+
     function updatePreview() {
         const labelType = document.querySelector('input[name="labelType"]:checked').value;
         const name1 = name1Input.value.toUpperCase();
