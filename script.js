@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             scale: 2,
             useCORS: true
         }).then(canvas => {
-
+            const { jsPDF } = window.jspdf;
             const pdf = new jsPDF({
                 orientation: 'landscape',
                 unit: 'cm',
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const imgData = canvas.toDataURL('image/png');
             pdf.addImage(imgData, 'PNG', 0, 0, 9.5, 2.5);
             pdf.save('etiquette.pdf');
-
         });
     });
 
