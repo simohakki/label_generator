@@ -36,9 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    downloadButton.addEventListener('click', function() {
-        html2canvas(labelPreview).then(canvas => {
-            const { jsPDF } = window.jspdf;
+
+    // Télécharger l'étiquette
+    downloadButton.addEventListener('click', function () {
+        html2canvas(labelPreview, {
+            backgroundColor: '#ffffff',
+            scale: 2,
+            useCORS: true
+        }).then(canvas => {
             const pdf = new jsPDF({
                 orientation: 'landscape',
                 unit: 'cm',
